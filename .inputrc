@@ -1,0 +1,3 @@
+# map ctrl+j and ctrl+k for bash history navigation
+"\C-k": previous-history
+"\C-j": next-history
