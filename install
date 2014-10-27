@@ -1,5 +1,4 @@
 #!/bin/sh
-
 DOTFILES_DIR=".dotfiles"
 DOTFILES="$HOME/$DOTFILES_DIR"
 GIT_REPO="kraiz/dotfiles"
