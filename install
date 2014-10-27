@@ -3,15 +3,22 @@ DOTFILES_DIR=".dotfiles"
 DOTFILES="$HOME/$DOTFILES_DIR"
 GIT_REPO="kraiz/dotfiles"
 
+OHMYZSH="$HOME/.oh-my-zsh"
+
+## Check for git
+if [ ! -x "$(which git)" ]; then
+    echo "Git not found."
+    exit 1
+fi
+
+## Grab oh-my-zsh
+if [ ! -d "$OHMYZSH" ]; then
+    git clone git://github.com/robbyrussell/oh-my-zsh.git $OHMYZSH 
+fi
+
 ## Grab dotfiles
 if [ ! -d "$DOTFILES" ]; then
-    if [ -x "$(which git)" ]; then
-        ## CLone git repo if not already there
-        git clone "https://github.com/$GIT_REPO.git" "$DOTFILES"
-    else
-        echo "Git not found."
-        exit 1
-    fi
+    git clone "https://github.com/$GIT_REPO.git" "$DOTFILES"
 fi
 
 ## Create placeholder directories if not already there
@@ -62,12 +69,5 @@ for SYMLINK in $(find $DOTFILES -not -iwholename "*.git*" -name "*.symlink"); do
     fi
 done
 
-## Fix origin to use SSH variant (TODO: need to check if able to commit)
-# if [ -x "$(which git)" ]; then
-#   cd "$DOTFILES";
-#   git remote set-url origin "git@github.com:$GIT_REPO.git"
-# fi
-
-echo "Please restart your shell"
-
+echo "Now run 'chsh -s /bin/zsh'"
 exit 0;
