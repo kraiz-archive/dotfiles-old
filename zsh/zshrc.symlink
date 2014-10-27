@@ -1,0 +1,9 @@
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="ys"
+export ZSH_CUSTOM=$HOME/.dotfiles/zsh/custom
+export LANG="en_US.UTF-8"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
