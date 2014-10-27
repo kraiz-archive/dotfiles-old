@@ -3,7 +3,7 @@ export ZSH_THEME="ys"
 export ZSH_CUSTOM=$HOME/.dotfiles/zsh/custom
 export LANG="en_US.UTF-8"
 
-plugins=(git)
+plugins=(git pip python sudo supervisor svn vagrant wd)
 
 source $ZSH/oh-my-zsh.sh
 
