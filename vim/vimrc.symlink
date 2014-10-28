@@ -4,6 +4,7 @@ execute pathogen#infect()
 execute pathogen#helptags()
 filetype plugin indent on
 syntax on
+colors jellybeans
 
 let mapleader=","
 let maplocalleader="\\"
@@ -52,7 +53,19 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nmap <silent> ,/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
+inoremap <expr><TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Theming
-colors jellybeans
+
+" Plugin settings:
+
+" tmuxline
 let g:tmuxline_powerline_separators = 0
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
