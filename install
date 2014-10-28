@@ -13,12 +13,12 @@ fi
 
 ## Grab oh-my-zsh
 if [ ! -d "$OHMYZSH" ]; then
-    git clone git://github.com/robbyrussell/oh-my-zsh.git $OHMYZSH 
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $OHMYZSH 
 fi
 
 ## Grab dotfiles
 if [ ! -d "$DOTFILES" ]; then
-    git clone "https://github.com/$GIT_REPO.git" "$DOTFILES"
+    git clone https://github.com/$GIT_REPO.git $DOTFILES
 fi
 
 ## Create placeholder directories if not already there
