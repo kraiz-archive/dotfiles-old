@@ -30,7 +30,6 @@ bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iqE 
 # Window navigation
 bind -n C-w previous-window
 bind -n C-e next-window
-bind -n C-q last-window
 
 # This tmux statusbar config was created by tmuxline.vim
 set -g status-bg "colour233"
