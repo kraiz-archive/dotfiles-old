@@ -51,8 +51,8 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " Global keys
 imap jj <Esc>
-nnoremap <silent> nn :w<CR>
-inoremap <silent> nn <Esc>:w<CR>
+nnoremap <silent> ,, :w<CR>
+inoremap <silent> ,, <Esc>:w<CR>
 nnoremap ; :
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
