@@ -1,4 +1,3 @@
-alias v='vagrant'
 alias vs='vagrant ssh'
 alias vu='vagrant up'
 alias vr='vagrant reload'
