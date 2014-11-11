@@ -4,6 +4,7 @@ set -g default-terminal "screen-256color"
 set -g base-index 1
 setw -g pane-base-index 1
 setw -g automatic-rename off
+set-environment -g CHERE_INVOKING 1
 
 # mouse basics
 setw -g mode-mouse on
