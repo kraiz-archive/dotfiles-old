@@ -29,6 +29,11 @@ set pastetoggle=<F2>
 set splitbelow
 set splitright
 
+set mouse+=a
+if &term =~ '^screen'
+    set ttymouse=xterm2
+endif
+
 " Editor layout
 set termencoding=utf-8
 set encoding=utf-8
