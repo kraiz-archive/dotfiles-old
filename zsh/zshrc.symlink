@@ -1,5 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="ys"
+export ZSH_THEME="kraiz"
 export ZSH_CUSTOM=$HOME/.dotfiles/zsh/custom
 export LANG="en_US.UTF-8"
 export EDITOR=vim
@@ -8,7 +8,7 @@ export DISABLE_AUTO_TITLE=true
 
 unsetopt flow_control
 
-plugins=(git pip python sudo supervisor svn vagrant wd)
+plugins=(git pip python pyenv sudo supervisor svn vagrant wd)
 
 source $ZSH/oh-my-zsh.sh
 
