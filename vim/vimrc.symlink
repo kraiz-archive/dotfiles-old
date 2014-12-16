@@ -64,9 +64,9 @@ set nomodeline
 set cursorline
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
+let &colorcolumn="80,".join(range(120,999),",")
 
 " Global keys
-imap jj <Esc>
 nnoremap <silent> ,, :w<CR>
 inoremap <silent> ,, <Esc>:w<CR>
 nnoremap ; :
@@ -77,7 +77,9 @@ cmap w!! w !sudo tee % >/dev/null
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
-" go keys
+" Plugin settings:
+" go
+let g:go_fmt_command = "goimports"
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -91,18 +93,18 @@ au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
-" Plugin settings:
-" go
-let g:go_fmt_command = "goimports"
-
 " tmuxline
 let g:tmuxline_powerline_separators = 0
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+au FileType css setlocal omnifunc=csscomplete#CompleteCSS
+au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+au FileType python setlocal omnifunc=pythoncomplete#Complete
+au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+" autopep8
+let g:autopep8_disable_show_diff = 1
+let g:autopep8_ignore = "E309"
+let g:autopep8_aggressive = 1
