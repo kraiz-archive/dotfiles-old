@@ -1,8 +1,19 @@
 set nocompatible
 filetype off
-execute pathogen#infect()
-execute pathogen#helptags()
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'Shougo/neocomplete'
+Plugin 'fatih/vim-go'
+call vundle#end()
 filetype plugin indent on
+
 syntax on
 colors jellybeans
 
