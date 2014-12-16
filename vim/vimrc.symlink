@@ -9,6 +9,7 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'tell-k/vim-autopep8'
 Plugin 'Shougo/neocomplete'
 Plugin 'fatih/vim-go'
 call vundle#end()
