@@ -17,6 +17,8 @@ filetype plugin indent on
 
 syntax on
 colors jellybeans
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+let &colorcolumn="80,120"
 
 let mapleader=","
 let maplocalleader="\\"
@@ -64,7 +66,6 @@ set nomodeline
 set cursorline
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-let &colorcolumn="80,".join(range(120,999),",")
 
 " Global keys
 nnoremap <silent> ,, :w<CR>
