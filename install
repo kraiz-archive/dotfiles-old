@@ -22,7 +22,7 @@ if [ ! -d "$DOTFILES" ]; then
 fi
 
 ## preinstall Vundle
-if [ ! -d "$DOTFILES" ]; then
+if [ ! -d "$DOTFILES/vim/vim.symlink/bundle/Vundle.vim" ]; then
     git clone https://github.com/gmarik/Vundle.vim.git $DOTFILES/vim/vim.symlink/bundle/Vundle.vim 
 fi
 
