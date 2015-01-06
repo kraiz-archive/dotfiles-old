@@ -19,9 +19,11 @@ fi
 ## Grab dotfiles
 if [ ! -d "$DOTFILES" ]; then
     git clone https://github.com/$GIT_REPO.git $DOTFILES
-    cd $DOTFILES
-    git submodule init
-    git submodule update
+fi
+
+## preinstall Vundle
+if [ ! -d "$DOTFILES" ]; then
+    git clone https://github.com/gmarik/Vundle.vim.git $DOTFILES/vim/vim.symlink/bundle/Vundle.vim 
 fi
 
 ## Create placeholder directories if not already there
