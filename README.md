@@ -11,4 +11,4 @@ install
 
 * install dotfiles:
 
-        curl -L https://raw.github.com/kraiz/dotfiles/master/install | sh
+        curl -L https://raw.githubusercontent.com/kraiz/dotfiles/master/install | sh
