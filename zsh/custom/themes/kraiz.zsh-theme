@@ -22,6 +22,7 @@ PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %{$fg[cyan]%}%n \
 %{$fg[green]%}@ \
+%{$fg[magenta]%}$(hostname): \
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${git_info} \
 ${virtualenv_info}
