@@ -20,3 +20,9 @@ if [[ `hostname` == W4DEUMSY9002036 ]]; then
         tmux send-keys 'vagrant ssh app -- -t "cd /var/local/*suite*; tail -f \$(find webcastsuite/ -name *.log)" ";" exec /bin/bash' C-m
     }
 fi
+
+if [[ "`id -nu`" == "vagrant" && -x ~/virtualenv/bin/pyrun ]]; then
+    export PATH=~/virtualenv/bin:$PATH
+    export STAGE=vagrant
+    cd /vagrant
+fi
