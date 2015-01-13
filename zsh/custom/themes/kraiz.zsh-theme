@@ -3,6 +3,7 @@ local current_dir='${PWD/#$HOME/~}'
 
 # svn info
 local svn_info='$(svn_prompt_info)'
+SVN_SHOW_BRANCH='true'
 ZSH_THEME_SVN_PROMPT_PREFIX=" %{$fg[green]%}[%{$reset_color%}svn:%{$fg[cyan]%}"
 ZSH_THEME_SVN_PROMPT_SUFFIX=""
 ZSH_THEME_SVN_PROMPT_DIRTY=" %{$fg[red]%}x%{$fg[green]%}]%{$reset_color%}"
