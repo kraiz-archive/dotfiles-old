@@ -10,8 +10,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'tell-k/vim-autopep8'
-Plugin 'Shougo/neocomplete'
 Plugin 'fatih/vim-go'
 call vundle#end()
 filetype plugin indent on
@@ -97,16 +95,3 @@ au FileType go nmap <Leader>e <Plug>(go-rename)
 
 " tmuxline
 let g:tmuxline_powerline_separators = 0
-
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-au FileType css setlocal omnifunc=csscomplete#CompleteCSS
-au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-au FileType python setlocal omnifunc=pythoncomplete#Complete
-au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" autopep8
-let g:autopep8_disable_show_diff = 1
-let g:autopep8_ignore = "E309"
-let g:autopep8_aggressive = 1
