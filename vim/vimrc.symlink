@@ -16,8 +16,10 @@ filetype plugin indent on
 
 syntax on
 colors jellybeans
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
-let &colorcolumn="80,120"
+if exists('+colorcolumn')
+  highlight ColorColumn ctermbg=235 guibg=#2c2d27
+  let &colorcolumn="80,120"
+endif
 
 let mapleader=","
 let maplocalleader="\\"
