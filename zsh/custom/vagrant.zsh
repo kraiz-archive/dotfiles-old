@@ -5,7 +5,7 @@ alias vh='vagrant halt'
 alias vd='vagrant destroy'
 alias vst='vagrant status'
 
-function vrs() {
+function vus() {
     vagrant up $1
     vagrant ssh $1
 }
