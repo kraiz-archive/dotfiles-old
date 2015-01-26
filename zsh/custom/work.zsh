@@ -1,8 +1,4 @@
 if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
-    export PATH="$HOME/.pyenv/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-
     export http_proxy="http://proxy.mms-dresden.de:8080"
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
