@@ -23,9 +23,9 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
         tmux send-keys 'vagrant ssh app -- -t "cd /var/local/*suite*; tail -f \$(find webcastsuite/ -name *.log)" ";" exec /bin/bash' C-m
     }
     vwsi() {
-        tmux send-keys 'vagrant ssh app -- -t "cd /usr/local/*suite*; wsi/bin/manage runserver 8200" ";" exec /bin/bash' C-m
+        tmux send-keys 'vagrant ssh dmz -- -t "cd /usr/local/*suite*; wsi/bin/manage runserver 8200" ";" exec /bin/bash' C-m
         tmux split-window -c "$PWD"
-        tmux send-keys 'vagrant ssh app -- -t "cd /var/local/*suite*; tail -f \$(find wsi/ -name *.log)" ";" exec /bin/bash' C-m
+        tmux send-keys 'vagrant ssh dmz -- -t "cd /var/local/*suite*; tail -f \$(find wsi/ -name *.log)" ";" exec /bin/bash' C-m
     }
 fi
 
