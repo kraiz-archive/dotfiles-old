@@ -6,3 +6,9 @@ alias pms='python manage.py shell'
 alias pi='pip install'
 alias pf='pip freeze'
 alias pfg='pip freeze | grep -i'
+
+if [ -d $HOME/.pyenv ]; then
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
