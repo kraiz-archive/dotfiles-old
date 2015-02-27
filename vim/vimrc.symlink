@@ -9,8 +9,6 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'fatih/vim-go'
 call vundle#end()
 filetype plugin indent on
 
