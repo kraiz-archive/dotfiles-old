@@ -3,8 +3,8 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
     
-    export VBOX_USER_HOME='C:/Users/lakr/.VirtualBox'
-    export VAGRANT_HOME='C:/Users/lakr/.vagrant.d'
+    export VBOX_USER_HOME='C:/Develop/VMs'
+    export VAGRANT_HOME='C:/Develop/VMs/.vagrant.d'
 
     alias poedit="/cygdrive/c/Program\ Files\ \(x86\)/Poedit/Poedit.exe"
 
