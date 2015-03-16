@@ -26,7 +26,8 @@ baseurl=http://opensource.wandisco.com/centos/6/svn-1.8/RPMS/\$basearch/
 enabled=1
 gpgcheck=0
 EOF
-" > /dev/null
+> /dev/null" $1
+    vagrant ssh -c "sudo yum clean all; sudo yum update subversion" $1
 }
 
 function vddi() {
