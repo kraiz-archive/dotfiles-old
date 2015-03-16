@@ -27,6 +27,18 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
         tmux split-window -c "$PWD"
         tmux send-keys 'vagrant ssh dmz -- -t "cd /var/local/*suite*; tail -f \$(find wsi/ -name *.log)" ";" exec /bin/bash' C-m
     }
+    
+    rup() {
+        for DIR in $(find . -mindepth 1 -maxdepth 1 -type d); do
+            cd $DIR
+            if [[ -d '.git' ]]; then
+                git pull
+            elif [[ -d '.svn' ]]; then
+                svn up
+            fi
+            cd ..
+        done
+    }
 fi
 
 if [[ "`id -nu`" == "vagrant" && -x ~/virtualenv/bin/pyrun ]]; then
