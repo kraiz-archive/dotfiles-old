@@ -18,6 +18,15 @@ function vrs() {
 function vdi() {
     vagrant ssh -c "curl -L https://raw.githubusercontent.com/kraiz/dotfiles/master/install | sh"  $1
     vagrant ssh -c "sudo chsh -s /bin/zsh vagrant" $1
+    
+    vagrant ssh -c "sudo tee /etc/yum.repos.d/wandisco-svn.repo <<EOF
+[WandiscoSVN]
+name=Wandisco SVN Repo
+baseurl=http://opensource.wandisco.com/centos/6/svn-1.8/RPMS/\$basearch/
+enabled=1
+gpgcheck=0
+EOF
+" > /dev/null
 }
 
 function vddi() {
