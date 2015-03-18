@@ -1,0 +1,8 @@
+[core]
+    eol = lf
+[credential]
+    helper = cache --timeout=846000
+[user]
+    name = Lars Kreisz
+[push]
+    default = tracking
