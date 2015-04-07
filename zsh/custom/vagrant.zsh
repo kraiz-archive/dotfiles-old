@@ -27,7 +27,7 @@ enabled=1
 gpgcheck=0
 EOF
 > /dev/null" $1
-    vagrant ssh -c "sudo yum clean all; sudo yum update subversion" $1
+    vagrant ssh -c "sudo yum clean all; sudo yum update -y subversion" $1
 }
 
 function vddi() {
