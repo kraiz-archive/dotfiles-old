@@ -42,8 +42,13 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
     }
 fi
 
-if [[ "`id -nu`" == "vagrant" && -x ~/virtualenv/bin/pyrun ]]; then
-    export PATH=~/virtualenv/bin:$PATH
+if [[ "`id -nu`" == "vagrant" ]]; then
+    if [[ -x /opt/python/bin/python ]]; then
+        export PATH=/opt/python/bin:$PATH
+    fi
+    if [[ -x ~/virtualenv/bin/pyrun ]]; then
+        export PATH=~/virtualenv/bin:$PATH
+    fi
     export STAGE=vagrant
     cd /vagrant
 fi
