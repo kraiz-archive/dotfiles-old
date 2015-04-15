@@ -43,6 +43,16 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
 fi
 
 if [[ "`id -nu`" == "vagrant" ]]; then
+    alias msm="/usr/local/*/mediasuite/bin/manage"
+    alias wsm="/usr/local/*/webcastsuite/bin/manage"
+    alias wsim="/usr/local/*/wsi/bin/manage"
+    
+    alias msr="msm runserver 8000"
+    alias msc="msm runcelery worker -BQ celery -l info --autoreload"
+    alias wsr="wsm runserver 8100"
+    alias msc="wsm runcelery worker -BQ celery,highprio -l info --autoreload"
+    alias wsir="wsim runserver 8200"
+
     if [[ -x /opt/python/bin/python ]]; then
         export PATH=/opt/python/bin:$PATH
     fi
