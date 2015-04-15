@@ -50,7 +50,7 @@ if [[ "`id -nu`" == "vagrant" ]]; then
     alias msr="msm runserver 8000"
     alias msc="msm runcelery worker -BQ celery -l info --autoreload"
     alias wsr="wsm runserver 8100"
-    alias msc="wsm runcelery worker -BQ celery,highprio -l info --autoreload"
+    alias wsc="wsm runcelery worker -BQ celery,highprio -l info --autoreload"
     alias wsir="wsim runserver 8200"
 
     if [[ -x /opt/python/bin/python ]]; then
