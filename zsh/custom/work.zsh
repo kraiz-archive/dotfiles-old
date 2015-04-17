@@ -52,6 +52,10 @@ if [[ "`id -nu`" == "vagrant" ]]; then
     alias wsr="wsm runserver 8100"
     alias wsc="wsm runcelery worker -BQ celery,highprio -l info --autoreload"
     alias wsir="wsim runserver 8200"
+    
+    alias mspip="/usr/local/*/mediasuite/bin/pip"
+    alias wspip="/usr/local/*/webcastsuite/bin/pip"
+    alias wsipip="/usr/local/*/wsi/bin/pip"
 
     if [[ -x /opt/python/bin/python ]]; then
         export PATH=/opt/python/bin:$PATH
