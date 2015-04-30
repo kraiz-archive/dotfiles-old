@@ -56,6 +56,7 @@ if [[ "`id -nu`" == "vagrant" ]]; then
     alias mspip="/usr/local/*/mediasuite/bin/pip"
     alias wspip="/usr/local/*/webcastsuite/bin/pip"
     alias wsipip="/usr/local/*/wsi/bin/pip"
+    alias sv="/usr/local/*/supervisor/bin/supervisorctl"
 
     if [[ -x /opt/python/bin/python ]]; then
         export PATH=/opt/python/bin:$PATH
