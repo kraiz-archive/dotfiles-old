@@ -28,9 +28,9 @@ if [[ "`id -nu`" == "vagrant" ]]; then
     alias wsim="/usr/local/*/wsi/bin/manage"
 
     alias msr="while true; do msm runserver 8000; sleep 2; done"
-    alias msc="msm runcelery worker -BQ celery -l info --autoreload"
+    alias msc="msm runcelery worker -BQ celery -l info --autoreload --autoscale=6,3"
     alias wsr="while true; do wsm runserver 8100; sleep 2; done"
-    alias wsc="wsm runcelery worker -BQ celery,highprio -l info --autoreload"
+    alias wsc="wsm runcelery worker -BQ celery,highprio -l info --autoreload --autoscale=8,4"
     alias wsir="while true; do wsim runserver 8200; sleep 2; done"
     
     alias mspip="/usr/local/*/mediasuite/bin/pip"
