@@ -5,6 +5,7 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
     
     export VBOX_USER_HOME='C:/Develop/VMs'
     export VAGRANT_HOME='C:/Develop/VMs/.vagrant.d'
+    export CHECKOUT_ROOT='C:/Develop/code'
 
     alias poedit="/cygdrive/c/Program\ Files\ \(x86\)/Poedit/Poedit.exe"
     
