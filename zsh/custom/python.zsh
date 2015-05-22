@@ -1,6 +1,6 @@
 alias p='python'
 alias pm='python manage.py'
-alias pmr='while true; do python manage.py runserver 0.0.0.0:8000; sleep 2; done'
+alias pmr='while true; do python manage.py runserver 0.0.0.0:8000; sleep 1; done'
 alias pmt='python manage.py test'
 alias pms='python manage.py shell'
 alias pi='pip install'
