@@ -9,6 +9,10 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 
@@ -77,21 +81,10 @@ cmap w!! w !sudo tee % >/dev/null
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
-" Plugin settings:
-" go
-let g:go_fmt_command = "goimports"
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>e <Plug>(go-rename)
-
 " tmuxline
 let g:tmuxline_powerline_separators = 0
+
+" auto flake8 on save
+autocmd BufWritePost *.py call Flake8()
+let g:flake8_show_in_gutter=1
+let g:flake8_show_quickfix=1
