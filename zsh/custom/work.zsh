@@ -28,11 +28,11 @@ if [[ "`id -nu`" == "vagrant" ]]; then
     alias wsm="/usr/local/*/webcastsuite/bin/manage"
     alias wsim="/usr/local/*/wsi/bin/manage"
 
-    alias msr="while true; do msm runserver 8000; sleep 0.25; done"
+    alias msr="while true; do msm runserver 8000; sleep 1; done"
     alias msc="msm runcelery worker -BQ celery -l info --autoreload --autoscale=6,3"
-    alias wsr="while true; do wsm runserver 8100; sleep 0.2; done"
+    alias wsr="while true; do wsm runserver 8100; sleep 1; done"
     alias wsc="wsm runcelery worker -BQ celery,highprio -l info --autoreload --autoscale=8,4"
-    alias wsir="while true; do wsim runserver 8200; sleep 0.2; done"
+    alias wsir="while true; do wsim runserver 8200; sleep 1; done"
     
     alias msp="/usr/local/*/mediasuite/bin/pip"
     alias wsp="/usr/local/*/webcastsuite/bin/pip"
