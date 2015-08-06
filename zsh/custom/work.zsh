@@ -24,6 +24,11 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
 fi
 
 if [[ "`id -nu`" == "vagrant" ]]; then
+    MSM=`echo /**/usr/local/*/mediasuite/bin/manage`
+    WSM=`echo /**/usr/local/*/webcastsuite/bin/manage`
+
+    alias msm=$MSM
+    alias wsm=$WSM
     alias msm="/usr/local/*/mediasuite/bin/manage"
     alias wsm="/usr/local/*/webcastsuite/bin/manage"
     alias wsim="/usr/local/*/wsi/bin/manage"
