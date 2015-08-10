@@ -16,6 +16,7 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
             if [[ -d '.git' ]]; then
                 git pull
             elif [[ -d '.svn' ]]; then
+                svn cleanup
                 svn up
             fi
             cd ..
