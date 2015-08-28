@@ -13,6 +13,8 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'duganchen/vim-soy'
+Plugin 'chaquotay/ftl-vim-syntax'
 call vundle#end()
 filetype plugin indent on
 
