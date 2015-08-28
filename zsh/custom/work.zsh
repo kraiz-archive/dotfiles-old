@@ -8,6 +8,7 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
     export CHECKOUT_ROOT='C:/Develop/code'
 
     alias poedit="/cygdrive/c/Program\ Files\ \(x86\)/Poedit/Poedit.exe"
+    alias mvn="/cygdrive/c/Users/lakr/Tools/apache-maven-3.3.3/bin/mvn"
     
     rup() {
         for DIR in $(find . -mindepth 1 -maxdepth 1 -type d); do
@@ -39,7 +40,7 @@ if [[ "`id -nu`" == "vagrant" ]]; then
     alias wsr="while true; do wsm runserver 8100; sleep 1; done"
     alias wsc="wsm runcelery worker -BQ celery,highprio -l info --autoreload --autoscale=8,4"
     alias wsir="while true; do wsim runserver 8200; sleep 1; done"
-    
+
     alias msp="/usr/local/*/mediasuite/bin/pip"
     alias wsp="/usr/local/*/webcastsuite/bin/pip"
     alias wsip="/usr/local/*/wsi/bin/pip"
