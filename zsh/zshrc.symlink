@@ -9,7 +9,7 @@ export PATH=~/.local/bin:$PATH
 
 unsetopt flow_control
 
-plugins=(git pip python pyenv sudo supervisor svn vagrant wd)
+plugins=(git gistfast pip python pyenv sudo supervisor svn vagrant wd)
 
 zstyle ':completion:*' special-dirs true
 

@@ -8,6 +8,7 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
     export CHECKOUT_ROOT='C:/Develop/code'
 
     alias poedit="/cygdrive/c/Program\ Files\ \(x86\)/Poedit/Poedit.exe"
+    alias mvn="/cygdrive/c/Users/lakr/Tools/apache-maven-3.3.3/bin/mvn"
 
     rup() {
         for DIR in $(find . -mindepth 1 -maxdepth 1 -type d); do
@@ -16,6 +17,7 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
             if [[ -d '.git' ]]; then
                 git pull
             elif [[ -d '.svn' ]]; then
+                svn cleanup
                 svn up
             fi
             cd ..
@@ -24,6 +26,11 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
 fi
 
 if [[ "`id -nu`" == "vagrant" ]]; then
+    MSM=`echo /**/usr/local/*/mediasuite/bin/manage`
+    WSM=`echo /**/usr/local/*/webcastsuite/bin/manage`
+
+    alias msm=$MSM
+    alias wsm=$WSM
     alias msm="/usr/local/*/mediasuite/bin/manage"
     alias wsm="/usr/local/*/webcastsuite/bin/manage"
     alias wsim="/usr/local/*/wsi/bin/manage"
