@@ -21,8 +21,8 @@ au FileType htmldjango setlocal sw=2 sts=2 expandtab
 syntax on
 colors jellybeans
 if exists('+colorcolumn')
-  highlight ColorColumn ctermbg=235 guibg=#2c2d27
-  let &colorcolumn="80,120"
+    highlight ColorColumn ctermbg=235 guibg=#2c2d27
+    let &colorcolumn="80,120"
 endif
 
 let mapleader=","
