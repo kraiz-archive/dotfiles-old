@@ -76,8 +76,8 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " Global keys
-nnoremap <silent> ,s :w<CR>
-inoremap <silent> ,s <Esc>:w<CR>
+nnoremap <leader>s :w<CR>
+inoremap <leader>s <Esc>:w<CR>
 nnoremap ; :
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
