@@ -79,13 +79,35 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 nnoremap <silent> ,, :w<CR>
 inoremap <silent> ,, <Esc>:w<CR>
 nnoremap ; :
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
 nmap <silent> ,/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 map <leader>f mzgg=G`z
+
+" fix completion handling
+set completeopt=longest,menuone
+inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <C-n> pumvisible() ? "<C-n>" : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" fugitiv git commands
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR><CR>
+nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <leader>gp :Ggrep<Space>
+nnoremap <leader>gm :Gmove<Space>
+nnoremap <leader>gb :Git branch<Space>
+nnoremap <leader>go :Git checkout<Space>
+nnoremap <leader>gps :Dispatch! git push<CR>
+nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 " tmuxline
 let g:tmuxline_powerline_separators = 0
