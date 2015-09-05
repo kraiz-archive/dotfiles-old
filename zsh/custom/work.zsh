@@ -2,13 +2,13 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
     export http_proxy="http://proxy.mms-dresden.de:8080"
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
-    
+
     export VBOX_USER_HOME='C:/Develop/VMs'
     export VAGRANT_HOME='C:/Develop/VMs/.vagrant.d'
     export CHECKOUT_ROOT='C:/Develop/code'
 
     alias poedit="/cygdrive/c/Program\ Files\ \(x86\)/Poedit/Poedit.exe"
-    
+
     rup() {
         for DIR in $(find . -mindepth 1 -maxdepth 1 -type d); do
             cd $DIR
@@ -33,7 +33,7 @@ if [[ "`id -nu`" == "vagrant" ]]; then
     alias wsr="while true; do wsm runserver 8100; sleep 1; done"
     alias wsc="wsm runcelery worker -BQ celery,highprio -l info --autoreload --autoscale=8,4"
     alias wsir="while true; do wsim runserver 8200; sleep 1; done"
-    
+
     alias msp="/usr/local/*/mediasuite/bin/pip"
     alias wsp="/usr/local/*/webcastsuite/bin/pip"
     alias wsip="/usr/local/*/wsi/bin/pip"
