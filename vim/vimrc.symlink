@@ -9,6 +9,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdtree'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/po.vim'
@@ -16,6 +17,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 filetype plugin indent on
 au FileType html setlocal sw=2 sts=2 expandtab
@@ -75,6 +77,8 @@ set cursorline
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
+set guifont=Inconsolata\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Windows\ Compatible\ 11
+
 " Global keys
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <Esc>:w<CR>
@@ -85,6 +89,11 @@ nmap <silent> ,/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 map <leader>f mzgg=G`z
+
+" nerd tree
+au FileType nerdtree setlocal nolist
+map <C-n> :NERDTreeToggle<CR>
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 " fix completion handling
 set completeopt=longest,menuone
@@ -109,8 +118,9 @@ nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
 
-" tmuxline
-let g:tmuxline_powerline_separators = 0
+" airline and tmuxline
+let g:airline_powerline_fonts = 1
+let g:tmuxline_powerline_separators = 1
 
 " auto flake8 on save
 autocmd BufWritePost *.py call Flake8()
