@@ -131,6 +131,14 @@ nnoremap <leader>gpl :Dispatch! git pull<CR>
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:tmuxline_powerline_separators = 1
+let g:tmuxline_preset = {
+    \'a'    : '#(whoami)@#H',
+    \'b'    : '#S',
+    \'win'  : '#I #W',
+    \'cwin' : '#I #W',
+    \'y'    : '%F',
+    \'z'    : '%R'
+\}
 
 " auto flake8 on save
 autocmd BufWritePost *.py call Flake8()
