@@ -24,6 +24,7 @@ Plugin 'duganchen/vim-soy'
 Plugin 'chaquotay/ftl-vim-syntax'
 call vundle#end()
 filetype plugin indent on
+au FileType js setlocal sw=2 sts=2 expandtab
 au FileType html setlocal sw=2 sts=2 expandtab
 au FileType htmldjango setlocal sw=2 sts=2 expandtab
 
