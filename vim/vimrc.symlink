@@ -26,6 +26,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'duganchen/vim-soy'
 Plugin 'chaquotay/ftl-vim-syntax'
 Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 filetype plugin indent on
 au FileType javascript setlocal sw=2 sts=2 expandtab
@@ -33,6 +34,7 @@ au FileType css setlocal sw=2 sts=2 expandtab
 au FileType scss setlocal sw=2 sts=2 expandtab
 au FileType html setlocal sw=2 sts=2 expandtab
 au FileType htmldjango setlocal sw=2 sts=2 expandtab
+au FileType yaml setlocal sw=2 sts=2 expandtab
 
 syntax on
 colors jellybeans
@@ -105,6 +107,9 @@ map <leader>f mzgg=G`z
 au FileType nerdtree setlocal nolist
 map <C-n> :NERDTreeToggle<CR>
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+
+" tagbar
+nmap <C-t> :TagbarToggle<CR>
 
 " ctrlp
 if executable( 'ag' )
