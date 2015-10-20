@@ -10,6 +10,8 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
     alias poedit="/cygdrive/c/Program\ Files\ \(x86\)/Poedit/Poedit.exe"
     alias mvn="/cygdrive/c/Users/lakr/Tools/apache-maven-3.3.3/bin/mvn"
 
+    alias jive='~/.venv/sandbox/bin/python ~/code/sandbox/jive.py'
+
     rup() {
         for DIR in $(find . -mindepth 1 -maxdepth 1 -type d); do
             cd $DIR

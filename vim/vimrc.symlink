@@ -22,11 +22,14 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'duganchen/vim-soy'
 Plugin 'chaquotay/ftl-vim-syntax'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'danro/rename.vim'
 call vundle#end()
 filetype plugin indent on
 au FileType js setlocal sw=2 sts=2 expandtab
 au FileType html setlocal sw=2 sts=2 expandtab
 au FileType htmldjango setlocal sw=2 sts=2 expandtab
+au BufNewFile,BufRead *.ftl set syntax=html.ftl
 
 syntax on
 colors jellybeans
@@ -94,6 +97,7 @@ nmap <silent> ,/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 map <leader>f mzgg=G`z
+nnorema <leader>lu :set ff=unix<CR>
 
 " nerd tree
 au FileType nerdtree setlocal nolist
