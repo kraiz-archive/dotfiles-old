@@ -26,6 +26,7 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
 fi
 if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
     alias mvn="~/tools/apache-maven-3.3.3/bin/mvn"
+    alias jive='~/venv/sandbox/bin/python ~/code/sandbox/jive.py'
 fi
 if [[ "`id -nu`" == "vagrant" ]]; then
     MSM=`echo /**/usr/local/*/mediasuite/bin/manage`
