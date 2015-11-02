@@ -24,7 +24,9 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
         done
     }
 fi
-
+if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
+    alias mvn="~/tools/apache-maven-3.3.3/bin/mvn"
+fi
 if [[ "`id -nu`" == "vagrant" ]]; then
     MSM=`echo /**/usr/local/*/mediasuite/bin/manage`
     WSM=`echo /**/usr/local/*/webcastsuite/bin/manage`
