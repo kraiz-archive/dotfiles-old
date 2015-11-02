@@ -1,1 +1,1 @@
-alias tm='tmux attach -t base || tmux new -s base'
+alias tm='tmux attach -t base || tmux -2 new -s base'
