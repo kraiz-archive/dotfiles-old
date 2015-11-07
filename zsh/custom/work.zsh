@@ -1,5 +1,5 @@
-if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
-    export http_proxy="http://proxy.mms-dresden.de:8080"
+if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
+    export http_proxy="http://proxy:8080"
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
 
@@ -24,7 +24,10 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
         done
     }
 fi
-
+if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
+    alias mvn="~/tools/apache-maven-3.3.3/bin/mvn"
+    alias jive='~/venv/jive/bin/python ~/code/sandbox/jive.py'
+fi
 if [[ "`id -nu`" == "vagrant" ]]; then
     MSM=`echo /**/usr/local/*/mediasuite/bin/manage`
     WSM=`echo /**/usr/local/*/webcastsuite/bin/manage`

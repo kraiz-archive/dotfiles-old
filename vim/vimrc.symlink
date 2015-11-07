@@ -36,6 +36,8 @@ au FileType html setlocal sw=2 sts=2 expandtab
 au FileType htmldjango setlocal sw=2 sts=2 expandtab
 au FileType yaml setlocal sw=2 sts=2 expandtab
 
+au BufNewFile,BufRead *.ftl set syntax=html.ftl
+
 syntax on
 colors jellybeans
 if exists('+colorcolumn')
