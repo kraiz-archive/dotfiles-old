@@ -1,4 +1,3 @@
-alias p='python'
 alias pm='python manage.py'
 alias pmr='while true; do python manage.py runserver 0.0.0.0:8000; sleep 1; done'
 alias pmt='python manage.py test'
