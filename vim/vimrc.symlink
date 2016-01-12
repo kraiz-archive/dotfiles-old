@@ -7,15 +7,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'Shougo/neocomplete.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'taiansu/nerdtree-ag'
-Plugin 'Shougo/neosnippet'
-Plugin 'honza/vim-snippets'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/po.vim'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -27,6 +23,7 @@ Plugin 'duganchen/vim-soy'
 Plugin 'chaquotay/ftl-vim-syntax'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
+Plugin 'mattn/emmet-vim'
 call vundle#end()
 filetype plugin indent on
 au FileType javascript setlocal sw=2 sts=2 expandtab
@@ -118,21 +115,6 @@ if executable( 'ag' )
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" fix completion handling
-let g:neocomplete#enable_at_startup = 0
-let g:neosnippet#disable_runtime_snippets = {'_': 1}
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = '~/.vim/bundle/vim-snippets/snippets'
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-" SuperTab like snippets behavior.
-imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \  "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
