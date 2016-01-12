@@ -7,6 +7,7 @@ alias pi='pip install'
 alias pf='pip freeze'
 alias pfg='pip freeze | grep -i'
 alias pcl='pip freeze --local | grep -v "^\-e" | cut -d = -f 1 | xargs -n1 -P10 pip uninstall -y'
+alias bp='bpython'
 
 if [ -d $HOME/.pyenv ]; then
   export PATH="$HOME/.pyenv/bin:$PATH"

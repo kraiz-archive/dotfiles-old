@@ -27,6 +27,23 @@ fi
 if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
     alias mvn="~/tools/apache-maven-3.3.3/bin/mvn"
     alias jive='~/venv/jive/bin/python ~/code/sandbox/jive.py'
+
+    mvn_version_release() {
+        ~/tools/apache-maven-3.3.3/bin/mvn versions:set -DnewVersion=$1
+        git add pom.xml */pom.xml
+        git commit -m "release version $1"
+        git tag -a $1 -m "tag release version $1"
+        git push
+        git push --tags
+        ~/tools/apache-maven-3.3.3/bin/mvn versions:commit
+    }
+    mvn_version_snapshot() {
+        ~/tools/apache-maven-3.3.3/bin/mvn versions:set -DnewVersion=$1-SNAPSHOT
+        git add pom.xml */pom.xml
+        git commit -m "set snapshot version $1-SNAPSHOT"
+        git push
+        ~/tools/apache-maven-3.3.3/bin/mvn versions:commit
+    }
 fi
 if [[ "`id -nu`" == "vagrant" ]]; then
     MSM=`echo /**/usr/local/*/mediasuite/bin/manage`
