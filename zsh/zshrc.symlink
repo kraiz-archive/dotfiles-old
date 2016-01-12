@@ -11,7 +11,7 @@ export ZSH_TMUX_AUTOSTART=true
 
 unsetopt flow_control
 
-plugins=(git pip python pyenv sudo wd docker mvn npm systemd common-aliases tmux)
+plugins=(git git-prompt pip python pyenv sudo wd docker mvn npm systemd common-aliases tmux)
 
 zstyle ':completion:*' special-dirs true
 
