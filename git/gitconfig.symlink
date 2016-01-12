@@ -5,6 +5,8 @@
     helper = cache --timeout=846000
 [push]
     default = tracking
+[color]
+    ui = true
 
 # include data not shared in my dotfiles
 [include]
