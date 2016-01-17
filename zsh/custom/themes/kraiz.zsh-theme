@@ -6,6 +6,7 @@ local git_info='$(git_super_status)'
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[green]%}[%{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%}]%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="%{$fg[green]%}|%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
 ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[cyan]%}%{✚%G%}"
 
 # python version and env info

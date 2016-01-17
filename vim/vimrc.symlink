@@ -108,6 +108,7 @@ map <leader>f mzgg=G`z
 
 " nerd tree
 au FileType nerdtree setlocal nolist
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
