@@ -11,6 +11,7 @@ compile-vim() {
                 --enable-python3interp --with-python3-config-dir=`echo /usr/lib/python3*/config-*` \
                 --prefix=$HOME/.local && \
     make && make install
+    cd $HOME
     rm -rf /tmp/vim
     $HOME/.local/bin/vim --version
 }
