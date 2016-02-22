@@ -3,7 +3,6 @@ DOTFILES_DIR=".dotfiles"
 DOTFILES="$HOME/$DOTFILES_DIR"
 GIT_REPO="kraiz/dotfiles"
 GIT_BRANCH="master"
-OHMYZSH="$HOME/.oh-my-zsh"
 
 ## Check for git
 if [ ! -x "$(which git)" ]; then
@@ -20,15 +19,6 @@ for SYMLINK in $(find $HOME -type l); do
             ;;
     esac
 done
-
-## Grab oh-my-zsh
-if [ ! -d "$OHMYZSH" ]; then
-    git clone https://github.com/robbyrussell/oh-my-zsh.git $OHMYZSH
-else
-    cd $OHMYZSH
-    git pull
-    cd $HOME
-fi
 
 ## Grab dotfiles
 if [ ! -d "$DOTFILES" ]; then
