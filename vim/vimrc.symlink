@@ -25,9 +25,12 @@ Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'mattn/emmet-vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'jason0x43/vim-js-indent'
 call vundle#end()
 filetype plugin indent on
 au FileType javascript setlocal sw=2 sts=2 expandtab
+au FileType typescript setlocal sw=2 sts=2 expandtab
 au FileType json setlocal sw=2 sts=2 expandtab
 au FileType css setlocal sw=2 sts=2 expandtab
 au FileType scss setlocal sw=2 sts=2 expandtab
@@ -110,6 +113,7 @@ map <leader>f mzgg=G`z
 au FileType nerdtree setlocal nolist
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 " tagbar
