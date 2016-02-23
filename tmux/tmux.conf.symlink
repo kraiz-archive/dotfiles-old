@@ -7,11 +7,7 @@ setw -g automatic-rename off
 set-environment -g CHERE_INVOKING 1
 
 # mouse basics
-setw -g mode-mouse on
-set -g mouse-utf8 off
-set -g mouse-select-pane on
-set -g mouse-select-window on
-set -g mouse-resize-pane on
+set -g mouse on
 
 # use C-a instead of C-b
 unbind C-b
