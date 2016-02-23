@@ -1,39 +1,40 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'taiansu/nerdtree-ag'
-Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/po.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'duganchen/vim-soy'
-Plugin 'chaquotay/ftl-vim-syntax'
-Plugin 'fatih/vim-go'
-Plugin 'majutsushi/tagbar'
-Plugin 'mattn/emmet-vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'jason0x43/vim-js-indent'
-call vundle#end()
-filetype plugin indent on
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'taiansu/nerdtree-ag'
+Plug 'nvie/vim-flake8'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'bling/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ryanoasis/vim-devicons'
+Plug 'duganchen/vim-soy'
+Plug 'chaquotay/ftl-vim-syntax'
+Plug 'majutsushi/tagbar'
+Plug 'mattn/emmet-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'jason0x43/vim-js-indent'
+call plug#end()
+
 au FileType xml setlocal sw=4 sts=4 noexpandtab
 au FileType java setlocal sw=4 sts=4 noexpandtab
 au BufNewFile,BufRead *.ftl set syntax=html.ftl
 
-syntax on
 colors jellybeans
 if exists('+colorcolumn')
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
@@ -47,18 +48,14 @@ set nowrap
 set tabstop=2
 set softtabstop=2
 set expandtab
-set backspace=indent,eol,start
-set autoindent
 set copyindent
 set number
-set shiftwidth=4
+set shiftwidth=2
 set shiftround
 set showmatch
-set ignorecase
 set smartcase
-set smarttab
+set ignorecase
 set hlsearch
-set incsearch
 set pastetoggle=<F2>
 set splitbelow
 set splitright
@@ -68,17 +65,10 @@ if &term =~ '^screen'
     set ttymouse=xterm2
 endif
 
-" Editor layout
-set termencoding=utf-8
-set encoding=utf-8
-set lazyredraw
-set laststatus=2
-
 " Vim behaviour
 set hidden
 set nobackup
 set noswapfile
-set wildmenu
 set wildmode=list:full
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell
@@ -86,8 +76,6 @@ set nomodeline
 set cursorline
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
-set guifont=Inconsolata\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Windows\ Compatible\ 11
 
 " Global keys
 nnoremap <leader>s :w<CR>
@@ -142,19 +130,3 @@ let g:tmuxline_preset = {
 autocmd BufWritePost *.py call Flake8()
 let g:flake8_show_in_gutter=1
 let g:flake8_show_quickfix=1
-
-" go settings and bindings
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gi <Plug>(go-implements)
-au FileType go nmap <Leader>e <Plug>(go-rename)
