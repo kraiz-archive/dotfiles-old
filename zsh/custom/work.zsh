@@ -1,14 +1,11 @@
 if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
-    export http_proxy="http://proxy:8080"
+    export http_proxy="http://proxy.mms-dresden.de:8080"
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
 
     export VBOX_USER_HOME='C:/Develop/VMs'
     export VAGRANT_HOME='C:/Develop/VMs/.vagrant.d'
     export CHECKOUT_ROOT='C:/Develop/code'
-
-    alias poedit="/cygdrive/c/Program\ Files\ \(x86\)/Poedit/Poedit.exe"
-    alias mvn="/cygdrive/c/Users/lakr/Tools/apache-maven-3.3.3/bin/mvn"
 
     rup() {
         for DIR in $(find . -mindepth 1 -maxdepth 1 -type d); do
@@ -25,7 +22,8 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
     }
 fi
 if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
-    alias mvn="~/tools/apache-maven-3.3.3/bin/mvn"
+    export PATH=~/tools/apache-maven-3.3.3/bin:$PATH
+    alias mvn=mvn-color
     alias jive='~/venv/jive/bin/python ~/code/sandbox/jive.py'
 
     mvn_version_release() {
