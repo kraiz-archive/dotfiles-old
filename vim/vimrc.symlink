@@ -33,7 +33,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'jason0x43/vim-js-indent'
 call plug#end()
 
-au FileType xml setlocal sw=4 sts=4 noexpandtab
+au FileType xml setlocal sw=4 ts=4 sts=4 noexpandtab
 au FileType java setlocal sw=4 sts=4 noexpandtab
 au BufNewFile,BufRead *.ftl set syntax=html.ftl
 
@@ -103,11 +103,6 @@ nmap <C-t> :TagbarToggle<CR>
 " ctrlp
 if executable( 'ag' )
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
 endif
 
 " fugitiv git commands
