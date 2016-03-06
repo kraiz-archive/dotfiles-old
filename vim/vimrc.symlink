@@ -8,29 +8,27 @@ endif
 
 call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-surround'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher', {'on': 'CtrlP'}
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'taiansu/nerdtree-ag'
-Plug 'nvie/vim-flake8'
+Plug 'scrooloose/nerdtree' | Plug 'taiansu/nerdtree-ag', {'on': 'NERDTreeToggle'}
+Plug 'nvie/vim-flake8', {'for': 'python'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ryanoasis/vim-devicons'
-Plug 'duganchen/vim-soy'
-Plug 'chaquotay/ftl-vim-syntax'
+Plug 'duganchen/vim-soy', {'for': 'soy'}
+Plug 'chaquotay/ftl-vim-syntax', {'for': 'ftl'}
 Plug 'majutsushi/tagbar'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'editorconfig/editorconfig-vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'jason0x43/vim-js-indent'
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'jason0x43/vim-js-indent', {'for': ['html', 'javascript', 'typescript']}
 call plug#end()
 
 au FileType xml setlocal sw=4 ts=4 sts=4 noexpandtab
@@ -94,7 +92,7 @@ map <leader>f mzgg=G`z
 au FileType nerdtree setlocal nolist
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__$']
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 " tagbar
