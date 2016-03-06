@@ -92,8 +92,8 @@ map <leader>f mzgg=G`z
 au FileType nerdtree setlocal nolist
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$', '__pycache__$']
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let NERDTreeIgnore = ['\.pyc$', '^__pycache__$', '\.egg-info$', '^build$', '^dist$']
 
 " tagbar
 nmap <C-t> :TagbarToggle<CR>
