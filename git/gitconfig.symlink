@@ -11,3 +11,5 @@
 # include data not shared in my dotfiles
 [include]
     path = ~/.gitconfig.include
+[merge]
+	tool = vimdiff

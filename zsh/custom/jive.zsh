@@ -4,10 +4,14 @@ function j() {
   cmd=$2
   site=~/code/$1-site
 
+  function _clean() {
+    cd $1
+    mvn-color clean
+  }
 
   function _build() {
     cd $1
-    mvn-color clean package
+    mvn-color package
     echo "DELETE FROM jiveproperty WHERE name LIKE '%key.node%';" |
       psql --host=192.168.58.192 \
           --dbname=$(grep ${2}_lakr ~/.m2/settings.xml | grep -Po '(?<=/)[^/]*(?=</)')
@@ -20,6 +24,10 @@ function j() {
 
 
   case $cmd in
+    "clean")
+      _clean $site
+      ;;
+
     "build")
       _build $site $project
       ;;
@@ -29,6 +37,12 @@ function j() {
       ;;
 
     "br")
+      _build $site $project
+      _run $site
+      ;;
+
+    "cbr")
+      _clean $site
       _build $site $project
       _run $site
       ;;
@@ -44,7 +58,10 @@ function j() {
       ;;
 
     "log")
-      tail -f --folow=name --retry $site/target/jiveHome/logs/sbs.log
+      while true; do
+        tail -f $site/target/jiveHome/logs/sbs.log
+        sleep 1
+      done
       ;;
 
   esac
