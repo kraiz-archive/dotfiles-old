@@ -1,5 +1,5 @@
 # basic settings
-set -g history-limit 20000
+set -g history-limit 50000
 set -g default-terminal "screen-256color"
 set -g base-index 1
 setw -g pane-base-index 1
