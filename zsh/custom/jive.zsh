@@ -58,7 +58,7 @@ function j() {
 
     "log")
       while true; do
-        tail -f $site/target/jiveHome/logs/sbs.log
+        grc tail -f $site/target/jiveHome/logs/sbs.log
         sleep 5
       done
       ;;
