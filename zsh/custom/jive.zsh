@@ -11,7 +11,7 @@ function j() {
 
   function _build() {
     cd $1
-    mvn-color package
+    mvn-color clean package $@[3,-1]
     echo "DELETE FROM jiveproperty WHERE name LIKE '%key.node%';" |
       psql --host=192.168.58.192 \
           --dbname=$(grep ${2}_lakr ~/.m2/settings.xml | grep -Po '(?<=/)[^/]*(?=</)')
@@ -36,14 +36,13 @@ function j() {
       _run $site
       ;;
 
-    "br")
+    "bar")
       _build $site $project
       _run $site
       ;;
 
-    "cbr")
-      _clean $site
-      _build $site $project
+    "br")
+      _build $site $project -pl '!web'
       _run $site
       ;;
 
@@ -60,7 +59,7 @@ function j() {
     "log")
       while true; do
         tail -f $site/target/jiveHome/logs/sbs.log
-        sleep 1
+        sleep 5
       done
       ;;
 
