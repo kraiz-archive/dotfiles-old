@@ -7,7 +7,7 @@ regexp=^.*(ERROR|Error|Exception).*$
 colours=bold red
 ======
 #stack trace
-regexp=^\s+at [^:]*:\d*\)$
+regexp=^\s+(at [^:]*(:\d*|<generated>|Unknown Source|Native Method)\)|\.\.\. \d+ more)$
 colours=red
 ======
 regexp=^.*(FATAL|Fatal).*$

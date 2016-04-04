@@ -17,7 +17,7 @@ tmuxjive() {
   tmux send-keys -t 4 "cd code/$1-site" enter
   tmux send-keys -t 4 "j $1 log" enter
 
-  rename-window "$1-run"
+  tmux rename-window "$1-run"
 }
 
 

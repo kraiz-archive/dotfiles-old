@@ -19,7 +19,7 @@ function j() {
 
   function _run() {
     cd $1/web
-    mvn-color -Pint cargo:start
+    mvn-color -Pint cargo:start | grcat conf.log4j
   }
 
 
@@ -53,12 +53,12 @@ function j() {
 
     "eae")
       cd $site/run-services
-      mvn-color -Peae exec:java
+      mvn-color -Peae exec:java | grcat conf.log4j
       ;;
 
     "log")
       while true; do
-        grc tail -f $site/target/jiveHome/logs/sbs.log
+        grc tail -F $site/target/jiveHome/logs/sbs.log
         sleep 5
       done
       ;;
