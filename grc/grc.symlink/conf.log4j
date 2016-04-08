@@ -10,13 +10,17 @@ colours=bold red
 regexp=^\s+(at [^:]*(:\d*|<generated>|Unknown Source|Native Method)\)|\.\.\. \d+ more)$
 colours=red
 ======
+# highlighted parts of stack trace
+regexp=^\s+(at com.tsystems.[^:]*(:\d*|<generated>|Unknown Source|Native Method)\)|\.\.\. \d+ more)$
+colours=bold red
+======
 regexp=^.*(FATAL|Fatal).*$
 colours=on_red
 ======
 regexp=^.*(WARN|WARNING|Warning).*$
 colours=bold yellow
 ======
-regexp=^.*(DEBUG|Debug).*$
+regexp=^[^\s]+.*(DEBUG|Debug).*$
 colours=bold black
 ======
 # this is a time
