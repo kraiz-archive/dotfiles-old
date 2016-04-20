@@ -25,7 +25,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'duganchen/vim-soy', {'for': 'soy'}
 Plug 'chaquotay/ftl-vim-syntax', {'for': 'ftl'}
 Plug 'majutsushi/tagbar'
-Plug 'mattn/emmet-vim', {'for': 'html'}
+Plug 'mattn/emmet-vim', {'for': ['html', 'soy', 'ftl']}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'jason0x43/vim-js-indent', {'for': ['html', 'javascript', 'typescript']}
