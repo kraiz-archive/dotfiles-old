@@ -3,15 +3,15 @@
 #
 # this configuration file is suitable for displaying log files
 #errors
-regexp=^.*(ERROR|Error|Exception).*$
+regexp=^.*(SEVERE|ERROR|Error|Exception).*$
 colours=bold red
 ======
 #stack trace
-regexp=^\s+(at [^:]*(:\d*|<generated>|Unknown Source|Native Method)\)|\.\.\. \d+ more)$
+regexp=^(\s|\[talledLocalContainer\])+(at [^:]*(:\d*|<generated>|Unknown Source|Native Method)\)|\.\.\. \d+ more)$
 colours=red
 ======
 # highlighted parts of stack trace
-regexp=^\s+(at com.tsystems.[^:]*(:\d*|<generated>|Unknown Source|Native Method)\)|\.\.\. \d+ more)$
+regexp=^(\s|\[talledLocalContainer\])+(at com.tsystems.[^:]*(:\d*|<generated>|Unknown Source|Native Method)\)|\.\.\. \d+ more)$
 colours=bold red
 ======
 regexp=^.*(FATAL|Fatal).*$
