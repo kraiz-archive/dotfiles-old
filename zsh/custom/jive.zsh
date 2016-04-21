@@ -48,7 +48,7 @@ function j() {
 
     "search")
       cd $site/run-services
-      mvn-color -Psearch exec:java
+      mvn-color -Psearch exec:java | grcat conf.log4j
       ;;
 
     "eae")
@@ -59,7 +59,7 @@ function j() {
     "log")
       while true; do
         sbs_pid=`ps aux | grep -v grep | grep cargo:start | awk '{print $2}'`
-        grc tail -qf --pid=$sbs_pid $site/target/jiveHome/logs/sbs.log
+        grc tail -f --pid=$sbs_pid $site/target/jiveHome/logs/sbs.log 2>/dev/null
         sleep 5
       done
       ;;
