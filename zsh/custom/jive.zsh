@@ -48,7 +48,7 @@ function j() {
 
     "search")
       cd $site/run-services
-      mvn-color -Psearch exec:java -Djava.net.preferIPv4Stack=true
+      mvn-color -Psearch exec:java
       ;;
 
     "eae")
@@ -58,8 +58,9 @@ function j() {
 
     "log")
       while true; do
-        grc tail -F $site/target/jiveHome/logs/sbs.log
-        sleep 2
+        sbs_pid=`ps aux | grep -v grep | grep cargo:start | awk '{print $2}'`
+        grc tail -qf --pid=$sbs_pid $site/target/jiveHome/logs/sbs.log
+        sleep 5
       done
       ;;
 
