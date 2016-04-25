@@ -19,7 +19,7 @@ function j() {
 
   function _run() {
     cd $1/web
-    mvn-color -Pint cargo:start
+    mvn-color -Pint cargo:start | grcat conf.log4j
   }
 
 
@@ -48,17 +48,18 @@ function j() {
 
     "search")
       cd $site/run-services
-      mvn-color -Psearch exec:java -Djava.net.preferIPv4Stack=true
+      mvn-color -Psearch exec:java | grcat conf.log4j
       ;;
 
     "eae")
       cd $site/run-services
-      mvn-color -Peae exec:java
+      mvn-color -Peae exec:java | grcat conf.log4j
       ;;
 
     "log")
       while true; do
-        grc tail -f $site/target/jiveHome/logs/sbs.log
+        sbs_pid=`ps aux | grep -v grep | grep cargo:start | awk '{print $2}'`
+        grc tail -f --pid=$sbs_pid $site/target/jiveHome/logs/sbs.log 2>/dev/null
         sleep 5
       done
       ;;
