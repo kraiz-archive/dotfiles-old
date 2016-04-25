@@ -27,6 +27,8 @@ Plug 'chaquotay/ftl-vim-syntax', {'for': 'ftl'}
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'editorconfig/editorconfig-vim'
+Plug 'othree/yajs.vim', {'for': 'javascript'}
+Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'jason0x43/vim-js-indent', {'for': ['html', 'javascript', 'typescript']}
 call plug#end()
