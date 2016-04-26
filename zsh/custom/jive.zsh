@@ -58,8 +58,11 @@ function j() {
 
     "log")
       while true; do
-        sbs_pid=`ps aux | grep -v grep | grep cargo:start | awk '{print $2}'`
-        grc tail -f --pid=$sbs_pid $site/target/jiveHome/logs/sbs.log 2>/dev/null
+        if [[ -f $site/target/jiveHome/logs/sbs.log ]]; then
+          sbs_pid=`ps aux | grep -v grep | grep cargo:start | awk '{print $2}'`
+          grc tail -f --pid=$sbs_pid $site/target/jiveHome/logs/sbs.log 2>/dev/null
+          eval printf %.1s '-{1..'"${COLUMNS:-$(tput cols)}"\}; echo
+        fi
         sleep 5
       done
       ;;
