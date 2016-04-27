@@ -12,4 +12,4 @@
 [include]
     path = ~/.gitconfig.include
 [merge]
-	tool = vimdiff
+    tool = vimdiff
