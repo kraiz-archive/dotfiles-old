@@ -34,7 +34,7 @@ git submodule update --init --recursive
 cd $HOME
 
 ## Create placeholder directories if not already there
-for DIR in $(find $DOTFILES -not -iwholename "*.git*" -name "*.copy"); do
+for DIR in $(find $DOTFILES -not -path "*.git*" -name "*.copy"); do
     DIR_NAME="$(basename ${DIR%.copy})"
     NEW_DIR="$HOME/.$DIR_NAME"
     if [ ! -d "$NEW_DIR" ]; then
@@ -61,7 +61,7 @@ done
 
 
 ## Create config directories if not already there
-for DIR in $(find $DOTFILES -not -iwholename "*.git*" -name "*.config"); do
+for DIR in $(find $DOTFILES -not -path "*.git*" -name "*.config"); do
     DIR_NAME="$(basename ${DIR%.config})"
     NEW_DIR="$HOME/.config/$DIR_NAME"
     if [ ! -d "$NEW_DIR" ]; then
@@ -87,7 +87,7 @@ for DIR in $(find $DOTFILES -not -iwholename "*.git*" -name "*.config"); do
 done
 
 ## Symlink all the things!
-for SYMLINK in $(find $DOTFILES -not -iwholename "*.git*" -name "*.symlink"); do
+for SYMLINK in $(find $DOTFILES -not -path "*.git*" -name "*.symlink"); do
     BASE_NAME="$(basename ${SYMLINK%.symlink})"
     NEW_FILE="$HOME/.$BASE_NAME"
     ## If the new file isn't a symlink
@@ -104,6 +104,6 @@ for SYMLINK in $(find $DOTFILES -not -iwholename "*.git*" -name "*.symlink"); do
 done
 
 ## Make Vundle install vim plugins
-vim +PluginInstall +qall
+vim +PlugClean +PlugInstall +PlugUpdate +qall
 
 exit 0;
