@@ -1,37 +1,47 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'taiansu/nerdtree-ag'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/po.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'duganchen/vim-soy'
-Plugin 'chaquotay/ftl-vim-syntax'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'danro/rename.vim'
-call vundle#end()
-filetype plugin indent on
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/bundle')
+Plug 'tpope/vim-surround'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher', {'on': 'CtrlP'}
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'taiansu/nerdtree-ag', {'on': 'NERDTreeToggle'}
+Plug 'nvie/vim-flake8', {'for': 'python'}
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ryanoasis/vim-devicons'
+Plug 'duganchen/vim-soy', {'for': 'soy'}
+Plug 'chaquotay/ftl-vim-syntax', {'for': 'ftl'}
+Plug 'majutsushi/tagbar'
+Plug 'mattn/emmet-vim', {'for': ['html', 'soy', 'ftl']}
+Plug 'editorconfig/editorconfig-vim'
+Plug 'othree/yajs.vim', {'for': 'javascript'}
+Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'jason0x43/vim-js-indent', {'for': ['html', 'javascript', 'typescript']}
+call plug#end()
+
 au FileType js setlocal sw=2 sts=2 expandtab
 au FileType html setlocal sw=2 sts=2 expandtab
 au FileType htmldjango setlocal sw=2 sts=2 expandtab
+au FileType xml setlocal sw=4 ts=4 sts=4 noexpandtab
+au FileType java setlocal sw=4 sts=4 noexpandtab
 au BufNewFile,BufRead *.ftl set syntax=html.ftl
 
-syntax on
 colors jellybeans
 if exists('+colorcolumn')
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
@@ -42,21 +52,17 @@ let mapleader=","
 let maplocalleader="\\"
 
 set nowrap
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set expandtab
-set backspace=indent,eol,start
-set autoindent
 set copyindent
 set number
-set shiftwidth=4
+set shiftwidth=2
 set shiftround
 set showmatch
-set ignorecase
 set smartcase
-set smarttab
+set ignorecase
 set hlsearch
-set incsearch
 set pastetoggle=<F2>
 set splitbelow
 set splitright
@@ -66,17 +72,10 @@ if &term =~ '^screen'
     set ttymouse=xterm2
 endif
 
-" Editor layout
-set termencoding=utf-8
-set encoding=utf-8
-set lazyredraw
-set laststatus=2
-
 " Vim behaviour
 set hidden
 set nobackup
 set noswapfile
-set wildmenu
 set wildmode=list:full
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell
@@ -84,8 +83,6 @@ set nomodeline
 set cursorline
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
-set guifont=Inconsolata\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Windows\ Compatible\ 11
 
 " Global keys
 nnoremap <leader>s :w<CR>
@@ -101,36 +98,23 @@ nnorema <leader>lu :set ff=unix<CR>
 
 " nerd tree
 au FileType nerdtree setlocal nolist
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let NERDTreeIgnore = ['\.pyc$', '^__pycache__$', '\.egg-info$', '^build$', '^dist$']
+
+" tagbar
+nmap <C-t> :TagbarToggle<CR>
 
 " ctrlp
 if executable( 'ag' )
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" fix completion handling
-set completeopt=longest,menuone
-inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <C-n> pumvisible() ? "<C-n>" : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 " fugitiv git commands
-nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>gt :Gcommit -v -q %:p<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>ge :Gedit<CR>
-nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR><CR>
-nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <leader>gp :Ggrep<Space>
-nnoremap <leader>gm :Gmove<Space>
-nnoremap <leader>gb :Git branch<Space>
-nnoremap <leader>go :Git checkout<Space>
-nnoremap <leader>gps :Dispatch! git push<CR>
-nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 " airline and tmuxline
 let g:airline_powerline_fonts = 1

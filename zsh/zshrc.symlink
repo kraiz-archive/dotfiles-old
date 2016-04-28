@@ -1,18 +1,41 @@
-export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="kraiz"
-export ZSH_CUSTOM=$HOME/.dotfiles/zsh/custom
-export DISABLE_AUTO_UPDATE="true"
-export LANG="en_US.UTF-8"
 export EDITOR=vim
-export DISABLE_AUTO_TITLE=true
 export PATH=~/.local/bin:$PATH
+export LANG="en_US.UTF-8"
+export ZSH_TMUX_AUTOSTART=true
+export DISABLE_AUTO_UPDATE="true"
+export DISABLE_AUTO_TITLE=true
 
-unsetopt flow_control
 
-plugins=(git gistfast pip python pyenv sudo supervisor svn vagrant wd)
+source "${HOME}/.dotfiles/zsh/zgen/zgen.zsh"
+
+if ! zgen saved; then
+    echo "Creating a zgen save"
+
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load tarruda/zsh-autosuggestions
+    zgen load rupa/z
+
+    zgen oh-my-zsh
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/git-prompt
+    zgen oh-my-zsh plugins/sudo
+    zgen oh-my-zsh plugins/pip
+    zgen oh-my-zsh plugins/pyenv
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/mvn
+    zgen oh-my-zsh plugins/npm
+    zgen oh-my-zsh plugins/systemd
+    zgen oh-my-zsh plugins/common-aliases
+    zgen oh-my-zsh plugins/tmux
+
+    zgen load $HOME/.dotfiles/zsh/custom
+    zgen load $HOME/.dotfiles/zsh/custom/themes/kraiz.zsh-theme
+
+    zgen save
+fi
+
 
 zstyle ':completion:*' special-dirs true
-
-source $ZSH/oh-my-zsh.sh
-
+bindkey '^ ' autosuggest-accept
+unsetopt flow_control
 unsetopt share_history

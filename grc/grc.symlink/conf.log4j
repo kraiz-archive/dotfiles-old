@@ -1,0 +1,34 @@
+# From http://fahdshariff.blogspot.ca/2011/04/highlighting-command-output-with.html
+# From https://gist.github.com/mmahadevan-okta/8327082
+#
+# this configuration file is suitable for displaying log files
+#errors
+regexp=^.*(SEVERE|ERROR|Error|Exception).*$
+colours=bold red
+======
+#stack trace
+regexp=^(\s|\[talledLocalContainer\])+(at [^:]*(:\d*|<generated>|Unknown Source|Native Method)\)|\.\.\. \d+ more)$
+colours=red
+======
+# highlighted parts of stack trace
+regexp=^(\s|\[talledLocalContainer\])+(at com.tsystems.[^:]*(:\d*|<generated>|Unknown Source|Native Method)\)|\.\.\. \d+ more)$
+colours=bold red
+======
+regexp=^.*(FATAL|Fatal).*$
+colours=on_red
+======
+regexp=^.*(WARN|WARNING|Warning).*$
+colours=bold yellow
+======
+regexp=^[^\s]+.*(DEBUG|Debug).*$
+colours=bold black
+======
+# this is a time
+regexp=[^\d]*\d\d:\d\d:\d\d[\.,]{0,1}\d{0,1}\d{0,1}\d{0,1}
+colours=bold blue
+count=once
+======
+# ip number
+regexp=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+colours=bold magenta
+count=more

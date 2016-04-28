@@ -1,7 +1,8 @@
-if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
+if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
     export http_proxy="http://proxy.mms-dresden.de:8080"
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
+    export no_proxy=127.0.0.1,localhost
 
     export VBOX_USER_HOME='C:/Develop/VMs'
     export VAGRANT_HOME='C:/Develop/VMs/.vagrant.d'
@@ -26,7 +27,28 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == W4DEUMSY9000018 ]]; then
         done
     }
 fi
+if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
+    export PATH=~/tools/apache-maven-3.3.3/bin:$PATH
+    alias mvn=mvn-color
+    alias jive='~/venv/jive/bin/python ~/code/sandbox/jive.py'
 
+    mvn_version_release() {
+        ~/tools/apache-maven-3.3.3/bin/mvn versions:set -DnewVersion=$1
+        git add pom.xml */pom.xml
+        git commit -m "release version $1"
+        git tag -a $1 -m "tag release version $1"
+        git push
+        git push --tags
+        ~/tools/apache-maven-3.3.3/bin/mvn versions:commit
+    }
+    mvn_version_snapshot() {
+        ~/tools/apache-maven-3.3.3/bin/mvn versions:set -DnewVersion=$1-SNAPSHOT
+        git add pom.xml */pom.xml
+        git commit -m "set snapshot version $1-SNAPSHOT"
+        git push
+        ~/tools/apache-maven-3.3.3/bin/mvn versions:commit
+    }
+fi
 if [[ "`id -nu`" == "vagrant" ]]; then
     MSM=`echo /**/usr/local/*/mediasuite/bin/manage`
     WSM=`echo /**/usr/local/*/webcastsuite/bin/manage`

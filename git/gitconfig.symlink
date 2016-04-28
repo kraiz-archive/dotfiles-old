@@ -2,10 +2,14 @@
     eol = lf
     fileMode = false
 [credential]
-    helper = cache --timeout=846000
+    helper = cache --timeout=84600000
 [push]
     default = tracking
+[color]
+    ui = true
 
 # include data not shared in my dotfiles
 [include]
     path = ~/.gitconfig.include
+[merge]
+    tool = vimdiff
