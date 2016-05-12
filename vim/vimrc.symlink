@@ -28,6 +28,7 @@ Plug 'duganchen/vim-soy', {'for': 'soy'}
 Plug 'chaquotay/ftl-vim-syntax', {'for': 'ftl'}
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim', {'for': ['html', 'soy', 'ftl']}
+Plug 'saltstack/salt-vim', {'for': 'sls'}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'othree/yajs.vim', {'for': 'javascript'}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
