@@ -136,7 +136,11 @@ autocmd BufWritePost *.py call Flake8()
 let g:flake8_show_in_gutter=1
 let g:flake8_show_quickfix=1
 
-" load python virtualenv
+" jedi (python) setuo
+let g:jedi#show_call_signatures = "2"
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+" jedi (python) virtualenv loading
 py3 << EOF
 import os
 import sys
