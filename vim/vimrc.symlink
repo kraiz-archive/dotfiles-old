@@ -14,6 +14,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'rking/ag.vim'
+Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'taiansu/nerdtree-ag', {'on': 'NERDTreeToggle'}
@@ -28,6 +29,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'duganchen/vim-soy', {'for': 'soy'}
 Plug 'chaquotay/ftl-vim-syntax', {'for': 'ftl'}
 Plug 'majutsushi/tagbar'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'leafo/moonscript-vim', {'for': 'moon'}
+Plug 'digitaltoad/vim-pug', {'for': ['pug', 'jade']}
 Plug 'mattn/emmet-vim', {'for': ['html', 'soy', 'ftl']}
 Plug 'saltstack/salt-vim', {'for': 'sls'}
 Plug 'editorconfig/editorconfig-vim'
@@ -130,6 +134,15 @@ let g:tmuxline_preset = {
       \'y'    : '%F',
       \'z'    : '%R'
       \}
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " auto flake8 on save
 autocmd BufWritePost *.py call Flake8()
