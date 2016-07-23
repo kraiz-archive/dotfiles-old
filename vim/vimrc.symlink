@@ -19,6 +19,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'taiansu/nerdtree-ag', {'on': 'NERDTreeToggle'}
 Plug 'nvie/vim-flake8', {'for': 'python'}
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-airline/vim-airline'
