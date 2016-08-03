@@ -155,7 +155,8 @@ let g:jedi#show_call_signatures = "2"
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 " jedi (python) virtualenv loading
-py3 << EOF
+if has('python3')
+  py3 << EOF
 import os
 import sys
 import vim
@@ -178,3 +179,4 @@ if 'VIRTUAL_ENV' in os.environ:
       sys.path.remove(item)
       sys.path[:0] = new_sys_path
 EOF
+endif
