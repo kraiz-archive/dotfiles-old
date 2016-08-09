@@ -18,9 +18,9 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'taiansu/nerdtree-ag', {'on': 'NERDTreeToggle'}
-Plug 'nvie/vim-flake8', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'lambdalisue/vim-pyenv', {'for': 'python'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -145,15 +145,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" auto flake8 on save
-autocmd BufWritePost *.py call Flake8()
-let g:flake8_show_in_gutter=1
-let g:flake8_show_quickfix=1
-
 " jedi (python) setuo
 let g:jedi#show_call_signatures = "2"
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
+
 " jedi (python) virtualenv loading
 if has('python3')
   py3 << EOF
