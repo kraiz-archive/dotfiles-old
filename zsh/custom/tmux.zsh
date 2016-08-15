@@ -42,7 +42,7 @@ tmuxthc() {
   tmux send-keys -t 3 "cd ~/code/lisupp/design/scss" enter
   tmux send-keys -t 3 "./sass.sh" enter
 
-  tmux rename-window "kraiz-de"
+  tmux rename-window "thc"
 }
 
 
