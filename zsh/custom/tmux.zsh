@@ -29,6 +29,23 @@ tmuxjive() {
 }
 
 
+tmuxthc() {
+  tmux split-window -d -t 0 -v -p 20
+  tmux split-window -d -t 2 -h -p 75
+
+  tmux send-keys -t 1 "cd ~/code/lisupp" enter
+  tmux send-keys -t 1 "vim -c NERDTreeToggle" enter
+
+  tmux send-keys -t 2 "cd ~/code/lisupp" enter
+  tmux send-keys -t 2 "git status" enter
+
+  tmux send-keys -t 3 "cd ~/code/lisupp/design/scss" enter
+  tmux send-keys -t 3 "./sass.sh" enter
+
+  tmux rename-window "kraiz-de"
+}
+
+
 tmuxkraiz() {
   tmux split-window -d -t 0 -v -p 20
   tmux split-window -d -t 2 -h
