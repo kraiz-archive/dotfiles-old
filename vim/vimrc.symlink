@@ -17,8 +17,9 @@ Plug 'rking/ag.vim'
 Plug 'kopischke/vim-fetch'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'taiansu/nerdtree-ag', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
+Plug 'taiansu/nerdtree-ag', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
+Plug 'mustache/vim-mustache-handlebars', {'for': ['html', 'handlebars', 'mustache']}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'lambdalisue/vim-pyenv', {'for': 'python'}
@@ -108,6 +109,7 @@ nnorema <leader>lu :set ff=unix<CR>
 au FileType nerdtree setlocal nolist
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeFind<CR>
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 let NERDTreeIgnore = ['\.pyc$', '^__pycache__$', '\.egg-info$', '^build$', '^dist$']
 

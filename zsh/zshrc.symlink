@@ -40,3 +40,6 @@ zstyle ':completion:*' special-dirs true
 bindkey '^ ' autosuggest-accept
 unsetopt flow_control
 unsetopt share_history
+
+export NVM_DIR="/home/lakr/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

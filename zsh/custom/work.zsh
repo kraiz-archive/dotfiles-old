@@ -13,6 +13,11 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
 
     alias jive='~/.venv/sandbox/bin/python ~/code/sandbox/jive.py'
 
+    # load alias file with customer names not shared here
+    if [[ -f ~/.secret_aliases.zsh ]]; then
+      source ~/.secret_aliases.zsh
+    fi;
+
     rup() {
         for DIR in $(find . -mindepth 1 -maxdepth 1 -type d); do
             cd $DIR
