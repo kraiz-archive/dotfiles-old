@@ -2,7 +2,11 @@
 function j() {
   project=$1
   cmd=$2
-  site=~/code/$1-site
+  if [[ -d ~/code/$1-site ]]; then
+    site=~/code/$1-site
+  elif [[ -d ~/code/$1/$1-site ]]; then
+    site=~/code/$1/$1-site
+  fi
 
   function _clean() {
     cd $1
@@ -13,8 +17,8 @@ function j() {
     cd $1
     mvn-color clean package $@[3,-1]
     echo "DELETE FROM jiveproperty WHERE name LIKE '%key.node%';" |
-      psql --host=192.168.58.192 \
-          --dbname=$(grep ${2}_lakr ~/.m2/settings.xml | grep -Po '(?<=/)[^/]*(?=</)')
+      psql --host=$(grep -Po "(?<=postgresql://)[^/:]*(?=(:\d+)?/$2)" ~/.m2/settings.xml) \
+         --dbname=$(grep -Po "(?<=/)$2[^/]+(?=</)"                     ~/.m2/settings.xml )
   }
 
   function _run() {
