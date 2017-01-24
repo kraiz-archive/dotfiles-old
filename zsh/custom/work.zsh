@@ -13,6 +13,11 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
 
     alias jive='~/.venv/sandbox/bin/python ~/code/sandbox/jive.py'
 
+    # load alias file with customer names not shared here
+    if [[ -f ~/.secret_aliases.zsh ]]; then
+      source ~/.secret_aliases.zsh
+    fi;
+
     rup() {
         for DIR in $(find . -mindepth 1 -maxdepth 1 -type d); do
             cd $DIR
@@ -31,6 +36,7 @@ if [[ `hostname` == W4DEUMSY9002036 || `hostname` == debian ]]; then
     export PATH=~/tools/apache-maven-3.3.3/bin:$PATH
     alias mvn=mvn-color
     alias jive='~/venv/jive/bin/python ~/code/sandbox/jive.py'
+    alias pc='~/code/proxychains-ng/proxychains4 -q -f ~/code/proxychains-ng/src/proxychains.conf'
 
     mvn_version_release() {
         ~/tools/apache-maven-3.3.3/bin/mvn versions:set -DnewVersion=$1

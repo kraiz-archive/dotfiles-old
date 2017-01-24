@@ -1,20 +1,19 @@
 
 function j() {
+  PATH=~/tools/oracle_instantcient_11_2:$PATH
   project=$1
   cmd=$2
-  site=~/code/$1-site
-
-  function _clean() {
-    cd $1
-    mvn-color clean
-  }
+  if [[ -d ~/code/$1-site ]]; then
+    site=~/code/$1-site
+  elif [[ -d ~/code/$1/$1-site ]]; then
+    site=~/code/$1/$1-site
+  fi
 
   function _build() {
     cd $1
+    \cp -rf $1/target/jiveHome/crypto /tmp/
     mvn-color clean package $@[3,-1]
-    echo "DELETE FROM jiveproperty WHERE name LIKE '%key.node%';" |
-      psql --host=192.168.58.192 \
-          --dbname=$(grep ${2}_lakr ~/.m2/settings.xml | grep -Po '(?<=/)[^/]*(?=</)')
+    \cp -rf /tmp/crypto $1/target/jiveHome/
   }
 
   function _run() {
@@ -24,10 +23,6 @@ function j() {
 
 
   case $cmd in
-    "clean")
-      _clean $site
-      ;;
-
     "build")
       _build $site $project
       ;;
