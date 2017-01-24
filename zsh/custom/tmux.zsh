@@ -48,19 +48,14 @@ tmuxthc() {
 
 tmuxkraiz() {
   tmux split-window -d -t 0 -v -p 20
-  tmux split-window -d -t 2 -h
 
   tmux send-keys -t 1 "pyenv activate kraiz-de" enter
   tmux send-keys -t 1 "cd code/kraiz-de" enter
-  tmux send-keys -t 1 "vim -c NERDTreeToggle" enter
+  tmux send-keys -t 1 "make run" enter
 
   tmux send-keys -t 2 "pyenv activate kraiz-de" enter
   tmux send-keys -t 2 "cd code/kraiz-de" enter
   tmux send-keys -t 2 "git status" enter
-
-  tmux send-keys -t 3 "pyenv activate kraiz-de" enter
-  tmux send-keys -t 3 "cd code/kraiz-de" enter
-  tmux send-keys -t 3 "make run" enter
 
   tmux rename-window "kraiz-de"
 }
