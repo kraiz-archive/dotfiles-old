@@ -103,7 +103,4 @@ for SYMLINK in $(find $DOTFILES -not -path "*.git*" -name "*.symlink"); do
     fi
 done
 
-## Make Vundle install vim plugins
-vim +PlugClean +PlugInstall +PlugUpdate +qall
-
 exit 0;
