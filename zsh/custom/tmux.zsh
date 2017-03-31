@@ -29,6 +29,32 @@ tmuxjive() {
 }
 
 
+tmuxteco() {
+  tmux split-window -d -t 0 -v
+  tmux split-window -d -t 0 -h
+  tmux split-window -d -t 2 -v
+  tmux split-window -d -t 2 -v
+  tmux split-window -d -t 1 -v
+
+  tmux send-keys -t 1 "htop" enter
+
+  tmux send-keys -t 2 "cd ~/code/j4e/plugin-parent/teco-extension-plugin && mvn-color clean package && cd ~/code/j4e/teco-site/web && mvn-color -Pint cargo:start | grcat conf.log4j" enter
+
+  tmux send-keys -t 3 "cd ~/code/j4e/teco-site/themes/src/main/themes/dev-theme/src" enter
+  tmux send-keys -t 3 "gulp" enter
+
+  tmux send-keys -t 4 "cd ~/code/j4e/teco-site/run-services" enter
+  tmux send-keys -t 4 "mvn-color -P eae exec:java | grcat conf.log4j" enter
+
+  tmux send-keys -t 5 "cd ~/code/j4e/teco-site/run-services" enter
+  tmux send-keys -t 5 "mvn-color -P search exec:java | grcat conf.log4j" enter
+
+  tmux send-keys -t 6 "tail -f ~/code/j4e/teco-site/target/jiveHome/logs/sbs.log  | grcat conf.log4j" enter
+
+  tmux rename-window "teco-run"
+}
+
+
 tmuxthc() {
   tmux split-window -d -t 0 -v -p 20
   tmux split-window -d -t 2 -h -p 75
